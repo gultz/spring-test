@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader" />
+
+    <form th:action th:object="${itemForm}" method="post">
+        <div>
+            <table class="table table-striped">
+                <h1>Album</h1>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>이름</th>
+                    <th>year</th>
+                    <th>status</th>
+                    <th>artist</th>
+                    <th>checkbox</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="album: ${albums}">
+                    <td th:text="${album.getId()}"></td>
+                    <td th:text="${album.getName()}"></td>
+                    <td th:text="${album.getYears()}"></td>
+                    <td th:text="${album.getItemStatus()}"></td>
+                    <td th:text="${album.getArtist()}"></td>
+                    <td><input type="checkbox" th:field="${itemForm.memberIds}" th:value="${album.getId()}" class="form-check-input">
+                    <label th:for="${itemForm.memberIds}" class="form-check-label"></label></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <table class="table table-striped">
+                <h1>Book</h1>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>이름</th>
+                    <th>year</th>
+                    <th>status</th>
+                    <th>author</th>
+                    <th>checkBox</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="book: ${books}">
+                    <td th:text="${book.getId()}"></td>
+                    <td th:text="${book.getName()}"></td>
+                    <td th:text="${book.getYears()}"></td>
+                    <td th:text="${book.getItemStatus()}"></td>
+                    <td th:text="${book.getAuthor()}"></td>
+                    <td><input type="checkbox" th:field="${itemForm.memberIds}" th:value="${book.getId()}" class="form-check-input">
+                        <label th:for="${itemForm.memberIds}" class="form-check-label"></label></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <table class="table table-striped">
+                <h1>Movie</h1>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>이름</th>
+                    <th>year</th>
+                    <th>status</th>
+                    <th>director</th>
+                    <th>platForm</th>
+                    <th>checkbox</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="movie: ${movies}">
+                    <td th:text="${movie.getId()}"></td>
+                    <td th:text="${movie.getName()}"></td>
+                    <td th:text="${movie.getYears()}"></td>
+                    <td th:text="${movie.getItemStatus()}"></td>
+                    <td th:text="${movie.getDirector()}"></td>
+                    <td th:text="${movie.getPlatForm()}"></td>
+                    <td><input type="checkbox" th:field="${itemForm.memberIds}" th:value="${movie.getId()}" class="form-check-input">
+                        <label th:for="${itemForm.memberIds}" class="form-check-label"></label></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
+
+
+        <button class="btn-primary" type="submit">전송</button>
+    </form>
+
+    <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+
+</html>

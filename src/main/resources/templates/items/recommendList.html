@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader" />
+
+    <div>
+        <table class="table table-striped">
+            <h1>item</h1>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>이름</th>
+                <th>year</th>
+                <th>status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item: ${items}">
+                <td th:text="${item.getId()}"></td>"
+                <td th:text="${item.getName()}"></td>
+                <td th:text="${item.getYears()}"></td>
+                <td th:text="${item.getItemStatus()}"></td>
+            </tr>
+            </tbody>
+            </thead>
+        </table>
+    </div>
+
+    <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+
+</html>
